@@ -1,0 +1,18 @@
+No.1	Desc:网络
+【1】Filename:h:\ performanceprofiler\performanceprofiler\performanceprofiler\performanceprofiler.cpp
+【2】Line:8
+【3】Function:TestSingleThead
+【4】CostTime:0.20,CallCount : 1
+
+No.2	Desc:中间逻辑s
+【1】Filename:h:\ performanceprofiler\performanceprofiler\performanceprofiler\performanceprofiler.cpp
+【2】Line:13
+【3】Function:TestSingleThead
+【4】CostTime:0.30,CallCount : 1
+
+No.3	Desc:数据库s
+【1】Filename:h:\ performanceprofiler\performanceprofiler\performanceprofiler\performanceprofiler.cpp
+【2】Line:19
+【3】Function:TestSingleThead
+【4】CostTime:0.40,CallCount : 1
+
