@@ -1,18 +1,21 @@
-No.1	Desc:网络
-【1】Filename:h:\ performanceprofiler\performanceprofiler\performanceprofiler\performanceprofiler.cpp
-【2】Line:8
-【3】Function:TestSingleThead
-【4】CostTime:0.20,CallCount : 1
+No.1, Desc:数据库m
+【一】Filename:h:\ performanceprofiler\performanceprofiler.cpp, Line:67, Function:Fun
+   【1】ThreadId:4148, CostTime:1.20 s, CallCount:4
+   【1】ThreadId:6996, CostTime:1.50 s, CallCount:5
+   【1】ThreadId:15156, CostTime:0.90 s, CallCount:3
+【二】TotalCostTime:14.43 s, TotalCallCount:48, AverCostTime:300 ms
 
-No.2	Desc:中间逻辑s
-【1】Filename:h:\ performanceprofiler\performanceprofiler\performanceprofiler\performanceprofiler.cpp
-【2】Line:13
-【3】Function:TestSingleThead
-【4】CostTime:0.30,CallCount : 1
+No.2, Desc:中间逻辑m
+【一】Filename:h:\ performanceprofiler\performanceprofiler.cpp, Line:63, Function:Fun
+   【1】ThreadId:4148, CostTime:0.80 s, CallCount:4
+   【1】ThreadId:6996, CostTime:1.00 s, CallCount:5
+   【1】ThreadId:15156, CostTime:0.60 s, CallCount:3
+【二】TotalCostTime:9.64 s, TotalCallCount:48, AverCostTime:200 ms
 
-No.3	Desc:数据库s
-【1】Filename:h:\ performanceprofiler\performanceprofiler\performanceprofiler\performanceprofiler.cpp
-【2】Line:19
-【3】Function:TestSingleThead
-【4】CostTime:0.40,CallCount : 1
+No.3, Desc:网络m
+【一】Filename:h:\ performanceprofiler\performanceprofiler.cpp, Line:59, Function:Fun
+   【1】ThreadId:4148, CostTime:0.40 s, CallCount:4
+   【1】ThreadId:6996, CostTime:0.50 s, CallCount:5
+   【1】ThreadId:15156, CostTime:0.30 s, CallCount:3
+【二】TotalCostTime:4.83 s, TotalCallCount:48, AverCostTime:100 ms
 

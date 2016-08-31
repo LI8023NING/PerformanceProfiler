@@ -222,7 +222,7 @@ struct PPSection
 	LongType _callCount; //此函数被调用的次数
 	LongType _ReCount;
 
-	mutex _mtx; //线程同步 互斥锁
+	mutex _mtex; //线程同步 互斥锁
 };
 
 struct PPNodeHash
@@ -293,6 +293,15 @@ static int GetTheadId()
 #endif // _WIN32
 }
 
+//递归 
+#define PERFORMANCE_PROFILER_EE_BEGIN(sign, desc) \
+	PPSection* ps##sign = PerformanceProfiler::GetInstance()->CreatePPSection(__FILE__, __FUNCTION__, __LINE__, desc); \
+	ps##sign->Begin(-1);  //用2或者-1即可 代表单线程下的递归
+
+#define PERFORMANCE_PROFILER_EE_END(sign)	\
+	ps##sign->End(-1);
+
+
 	// 剖析单线程场景
 #define PERFORMANCE_PROFILER_EE_ST_BEGIN(sign, desc) \
 	PPSection* ps##sign = NULL;						 \
@@ -301,3 +310,26 @@ static int GetTheadId()
 
 #define PERFORMANCE_PROFILER_EE_ST_END(sign)	\
 	if (ps##sign) ps##sign->End(-1);
+
+
+// 剖析多线程场景
+#define PERFORMANCE_PROFILER_EE_MT_BEGIN(sign, desc) \
+	PPSection* ps##sign = NULL;						 \
+if (ConfigManager::GetInstance()->GetOptions() & PERFORMANCE_PROFILER)\
+{												 \
+	ps##sign = PerformanceProfiler::GetInstance()->CreatePPSection(__FILE__, __FUNCTION__, __LINE__, desc); \
+	ps##sign->Begin(GetTheadId());						 \
+}
+
+#define PERFORMANCE_PROFILER_EE_MT_END(sign)	\
+if (ps##sign)								\
+	ps##sign->End(GetTheadId());
+
+
+#define SET_CONFIG_OPTIONS(option)				\
+	ConfigManager::GetInstance()->SetOptions(option);  //设置启动项
+
+//暂时 开启开关，开启1.开总控
+                   //2.写控制台
+                   //3.开写文件
+                   //4.开花费时间排序
